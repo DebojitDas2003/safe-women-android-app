@@ -1,4 +1,4 @@
-package com.example.safewomen.ui.theme
+package com.adds.safewomen.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

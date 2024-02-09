@@ -1,4 +1,4 @@
-package com.example.safewomen.ui.theme
+package com.adds.safewomen.ui.theme
 
 import android.app.Activity
 import android.os.Build

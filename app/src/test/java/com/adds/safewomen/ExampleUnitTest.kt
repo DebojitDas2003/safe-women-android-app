@@ -1,4 +1,4 @@
-package com.example.safewomen
+package com.adds.safewomen
 
 import org.junit.Test
 

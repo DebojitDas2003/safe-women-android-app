@@ -1,4 +1,5 @@
-package com.example.safewomen
+package com.adds.safewomen.view
+
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -17,6 +18,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 @Composable
@@ -33,9 +35,9 @@ fun LoginPage(onLoginSuccess: () -> Unit) {
             .padding(16.dp),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment  = Alignment.CenterHorizontally,
-        ){
+    ){
 
-        Text(text = "Email", modifier = Modifier.padding(start = 25.dp))
+        Text(text = "Email", modifier = Modifier.padding(start = 10.dp))
         TextField(
             value = email,
             onValueChange = {email = it},
@@ -44,8 +46,8 @@ fun LoginPage(onLoginSuccess: () -> Unit) {
                 .padding(15.dp),
             singleLine = true)
         Text(text = "Password",
-            modifier = Modifier.padding(start = 25.dp)
-            )
+            modifier = Modifier.padding(start = 10.dp)
+        )
         TextField(
             value = password,
             onValueChange = {password = it},
@@ -58,4 +60,10 @@ fun LoginPage(onLoginSuccess: () -> Unit) {
             Text(text = "Login")
         }
     }
+}
+
+@Composable
+@Preview(showBackground = true)
+fun LoginPagePreview() {
+    LoginPage(onLoginSuccess = {})
 }

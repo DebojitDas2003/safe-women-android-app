@@ -1,4 +1,4 @@
-package com.example.safewomen
+package com.adds.safewomen
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -48,7 +48,8 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.safewomen.ui.theme.SafeWomenTheme
+import com.adds.safewomen.ui.theme.SafeWomenTheme
+import com.example.safewomen.R
 
 data class BottomNavigationItem(
     val title: String,

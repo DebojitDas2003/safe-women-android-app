@@ -27,7 +27,7 @@
 
 
         <activity
-            android:name="com.example.safewomen.MainActivity"
+            android:name="com.adds.safewomen.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.SafeWomen" >
             <intent-filter>
