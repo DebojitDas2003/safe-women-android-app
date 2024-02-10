@@ -74,6 +74,7 @@ The app offers a range of features to help users stay safe in various situations
 7.  **Immigrant Women**:  Women who have migrated to a new country, who may experience language barriers, cultural challenges, and heightened vulnerability to exploitation and discrimination.
 8.  **Humanitarian Aid Workers**:  Women working in humanitarian and development organizations who may face safety risks while providing assistance in conflict zones, disaster-affected areas, or other challenging environments.
 
+## Scalability:
 
-
+To ensure scalability, we plan to employ a cloud-based infrastructure capable of handling a large user base and concurrent requests. Additionally, we'll design the app with modularity in mind, allowing for easy integration of new features and updates. Partnering with local authorities and organizations can extend our reach and impact. Continuous feedback and data analysis will inform optimization strategies. Ultimately, our goal is to create a robust and adaptable system capable of scaling alongside increasing demand and evolving user needs.
 
