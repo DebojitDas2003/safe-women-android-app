@@ -56,7 +56,7 @@ The app offers a range of features to help users stay safe in various situations
 6. **Add Contacts Page**:
 
 - **Add Contacts**: Make it easy to add existing contacts as emergency contacts or create new contacts.
-- **Categorize contacts**: Allow grouping contacts by family, friends, neighbors, or work colleagues for faster selection.
+- **Categorize contacts**: Allow grouping contacts by family, friends, neighbours, or work colleagues for faster selection.
 
 7. **About Page**:
    
@@ -65,7 +65,7 @@ The app offers a range of features to help users stay safe in various situations
 
 ## Target Audience:
 
-1. **Women of All Ages**:  Women from various age groups, including teenagers, young adults, and seniors, who may encounter safety concerns in different contexts such as commuting, socializing, or traveling.
+1. **Women of All Ages**:  Women from various age groups, including teenagers, young adults, and seniors, who may encounter safety concerns in different contexts such as commuting, socializing, or travelling.
 2. **Students**:  Female students attending schools, colleges, or universities who may face safety challenges both on campus and during commutes. 
 3. **Solo female travelers**:  Facing unique safety concerns in unfamiliar environments, needing emergency resources and communication tools.
 4. **Survivors of domestic violence**:  Women who have experienced or are at risk of domestic violence and require resources, support, and tools for enhancing their safety and accessing assistance.
@@ -80,3 +80,4 @@ To ensure scalability, we plan to employ a cloud-based infrastructure capable of
 
 ## Tech Stack:
 
+## Business Model
