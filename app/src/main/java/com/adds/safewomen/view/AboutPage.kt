@@ -21,6 +21,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.compose.Background
 import com.example.compose.Design
 import com.example.safewomen.BuildConfig
 import com.example.safewomen.R
@@ -39,7 +40,7 @@ fun AboutScreen() {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .background(Color.DarkGray)
+                .background(Background)
                 .padding(10.dp)
 
         ) {

@@ -18,6 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.adds.safewomen.viewmodel.ContactPageViewModel
+import com.example.compose.Design
 
 class ContactPage : ComponentActivity() {
     private val viewModel: ContactPageViewModel by viewModels()
@@ -70,6 +71,7 @@ fun ContactPageContent(viewModel: ContactPageViewModel) {
             Text(text = "Add Contact")
         }
     }
+    Design()
 }
 
 
