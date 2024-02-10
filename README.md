@@ -28,3 +28,39 @@ Our mission is to empower women with technology to feel safer and more confident
 ***SAFE WOMEN*** is a mobile application designed to provide women with immediate access to emergency tools for personal safety. Through user-friendly interfaces, the app empowers women to take proactive measures to protect themselves and access assistance when needed.
 
 The app offers a range of features to help users stay safe in various situations, whether walking alone at night, riding public transportation, or simply feeling uncomfortable in any environment.
+### **Layout**:
+1. **Startup Page**:
+  By clicking the **Get Started** button, it will open **login/signup** page...
+
+3. **Login Page / Signup Page**:
+
+- By giving username and password, one can access our app. Don't have an account? Click on **Signup** option
+- "forgot password" option is also present in Login page that Allow users to easily recover their forgotten passwords.
+
+3. **Home Page**:
+- Our main **SOS** button will be located here. By pressing it, it will generate calls to their saved emergency numbers.
+   
+4. **Profile Page**:
+
+- **Edit profile**: Allow adding profile pictures, bios, and preferred contact methods.
+- **Display key emergency information**: Show quick access to emergency contacts, location tracking settings, and SOS buttons.
+- **Connect Button**: You can connect your emergency contacts through this button as well. 
+
+5. **Settings Page**:
+   
+- **Manage app permissions**: Allow adjusting location sharing, contact access, and other permissions based on user comfort.
+- **Provide accessibility options**: Offer features like Themes, General, About
+- **Sign out** option
+
+6. **Add Contacts Page**:
+
+- **Add Contacts**: Make it easy to add existing contacts as emergency contacts or create new contacts.
+- **Categorize contacts**: Allow grouping contacts by family, friends, neighbors, or work colleagues for faster selection.
+
+7. **About Page**
+   -it is connected through the setting page.
+
+
+
+
+
