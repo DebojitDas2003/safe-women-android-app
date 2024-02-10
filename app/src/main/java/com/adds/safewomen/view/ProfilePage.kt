@@ -15,6 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.adds.safewomen.viewmodel.ProfilePageViewModel
+import com.example.compose.Design
 
 class ProfilePage : ComponentActivity() {
     private val viewModel: ProfilePageViewModel by viewModels()
@@ -42,6 +43,7 @@ fun ProfilePageContent(viewModel: ProfilePageViewModel) {
         Text(text = user?.workplace ?: "No user data available")
         Text(text = user?.address ?: "No user data available")
     }
+    Design()
 }
 
 @Composable

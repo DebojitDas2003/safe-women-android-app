@@ -29,7 +29,7 @@
         <activity
             android:name="com.adds.safewomen.MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.SafeWomen" >
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

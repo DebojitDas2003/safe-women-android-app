@@ -20,6 +20,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.adds.safewomen.viewmodel.HomePageViewModel
+import com.example.compose.Design
 
 @Composable
 fun HomePage() {
@@ -29,7 +30,7 @@ fun HomePage() {
 
         Surface(
             modifier = Modifier
-                .background(Color.DarkGray)
+                .background(MaterialTheme.colorScheme.background)
                 .fillMaxSize() // Fill the available space
         ) {
             Column(
@@ -49,6 +50,7 @@ fun HomePage() {
                     Text(text = "Help", fontSize = 50.sp)
                 }
             }
+            Design()
         }
     }
 }
