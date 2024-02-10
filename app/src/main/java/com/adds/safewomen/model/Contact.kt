@@ -1,7 +1,10 @@
-import androidx.annotation.DrawableRes
-import androidx.annotation.StringRes
+package com.adds.safewomen.model
 
+import androidx.room.Entity
+
+@Entity
 data class Contact(
-    @StringRes val stringResourceId: Int,
-    @DrawableRes val imageResourceId: Int
+    val name: String,
+    val phoneNumber: String,
+    val whatsappNumber: String
 )
