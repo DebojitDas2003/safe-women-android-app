@@ -63,6 +63,17 @@ The app offers a range of features to help users stay safe in various situations
 - it is connected through the setting page.
 
 
+## Target Audience:
+
+1. **Women of All Ages**:  Women from various age groups, including teenagers, young adults, and seniors, who may encounter safety concerns in different contexts such as commuting, socializing, or traveling.
+2. **Students**:  Female students attending schools, colleges, or universities who may face safety challenges both on campus and during commutes. 
+3. **Solo female travelers**:  Facing unique safety concerns in unfamiliar environments, needing emergency resources and communication tools.
+4. **Survivors of domestic violence**:  Women who have experienced or are at risk of domestic violence and require resources, support, and tools for enhancing their safety and accessing assistance.
+5. **Working Professionals**:  Women who work in various industries and may encounter safety risks while commuting to and from work or during late hours at the workplace.
+6. **Women with Disabilities**:  Women with physical, sensory, or cognitive disabilities who may require accommodations and specialized resources to address safety concerns and access assistance.
+7.  **Immigrant Women**:  Women who have migrated to a new country, who may experience language barriers, cultural challenges, and heightened vulnerability to exploitation and discrimination.
+8.  **Humanitarian Aid Workers**:  Women working in humanitarian and development organizations who may face safety risks while providing assistance in conflict zones, disaster-affected areas, or other challenging environments.
+
 
 
 
