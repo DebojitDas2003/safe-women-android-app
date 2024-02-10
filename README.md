@@ -51,7 +51,7 @@ The app offers a range of features to help users stay safe in various situations
    
 - **Manage app permissions**: Allow adjusting location sharing, contact access, and other permissions based on user comfort.
 - **Provide accessibility options**: Offer features like Themes, General, About
-- **Sign out** option
+- **Sign out** : option
 
 6. **Add Contacts Page**:
 
