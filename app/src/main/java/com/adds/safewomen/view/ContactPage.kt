@@ -40,8 +40,8 @@ fun ContactPageContent(viewModel: ContactPageViewModel) {
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         TextField(
-            value = viewModel.name,
-            onValueChange = { viewModel.name = it },
+            value = viewModel.name.value,
+            onValueChange = { newValue -> viewModel.name.value = newValue },
             label = { Text("Name") },
             modifier = Modifier
                 .fillMaxWidth()
@@ -49,8 +49,8 @@ fun ContactPageContent(viewModel: ContactPageViewModel) {
             singleLine = true
         )
         TextField(
-            value = viewModel.phoneNumber,
-            onValueChange = { viewModel.phoneNumber = it },
+            value = viewModel.phoneNumber.value,
+            onValueChange = { newValue -> viewModel.phoneNumber.value = newValue },
             label = { Text("Phone Number") },
             modifier = Modifier
                 .fillMaxWidth()
@@ -58,8 +58,8 @@ fun ContactPageContent(viewModel: ContactPageViewModel) {
             singleLine = true
         )
         TextField(
-            value = viewModel.whatsappNumber,
-            onValueChange = { viewModel.whatsappNumber = it },
+            value = viewModel.whatsappNumber.value,
+            onValueChange = { newValue -> viewModel.whatsappNumber.value = newValue },
             label = { Text("WhatsApp Number") },
             modifier = Modifier
                 .fillMaxWidth()
@@ -71,6 +71,7 @@ fun ContactPageContent(viewModel: ContactPageViewModel) {
         }
     }
 }
+
 
 @Composable
 @Preview(showBackground = true)

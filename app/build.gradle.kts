@@ -69,6 +69,7 @@ dependencies {
     implementation ("androidx.compose.material3:material3:1.2.0")
     //Dagger-Hilt
     implementation("com.google.dagger:hilt-android:2.48")
+    implementation("com.google.android.gms:play-services-location:21.1.0")
     ksp("com.google.dagger:hilt-compiler:2.48")
 
     //Room
