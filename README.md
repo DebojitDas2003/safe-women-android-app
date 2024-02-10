@@ -78,3 +78,5 @@ The app offers a range of features to help users stay safe in various situations
 
 To ensure scalability, we plan to employ a cloud-based infrastructure capable of handling a large user base and concurrent requests. Additionally, we'll design the app with modularity in mind, allowing for easy integration of new features and updates. Partnering with local authorities and organizations can extend our reach and impact. Continuous feedback and data analysis will inform optimization strategies. Ultimately, our goal is to create a robust and adaptable system capable of scaling alongside increasing demand and evolving user needs.
 
+## Tech Stack:
+
