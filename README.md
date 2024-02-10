@@ -30,6 +30,7 @@ Our mission is to empower women with technology to feel safer and more confident
 The app offers a range of features to help users stay safe in various situations, whether walking alone at night, riding public transportation, or simply feeling uncomfortable in any environment.
 ### **Layout**:
 1. **Startup Page**:
+
   By clicking the **Get Started** button, it will open **login/signup** page...
 
 3. **Login Page / Signup Page**:
@@ -57,7 +58,8 @@ The app offers a range of features to help users stay safe in various situations
 - **Add Contacts**: Make it easy to add existing contacts as emergency contacts or create new contacts.
 - **Categorize contacts**: Allow grouping contacts by family, friends, neighbors, or work colleagues for faster selection.
 
-7. **About Page**
+7. **About Page**:
+   
    -it is connected through the setting page.
 
 
