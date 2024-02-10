@@ -21,3 +21,10 @@ In today's world, women continue to face various forms of harassment, violence, 
 - **Justice system inefficiencies**: Navigating legal systems and seeking justice can be daunting and frustrating.
  
 - **Social pressures**: Fear of judgment or victim-blaming can prevent women from reporting incidents or seeking help.
+
+### Our Mission:
+Our mission is to empower women with technology to feel safer and more confident in their daily lives.
+
+***SAFE WOMEN*** is a mobile application designed to provide women with immediate access to emergency tools for personal safety. Through user-friendly interfaces, the app empowers women to take proactive measures to protect themselves and access assistance when needed.
+
+The app offers a range of features to help users stay safe in various situations, whether walking alone at night, riding public transportation, or simply feeling uncomfortable in any environment.
