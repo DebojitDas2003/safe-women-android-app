@@ -9,5 +9,6 @@ data class Contact(
     val name: String,
     val phoneNumber: String,
     val whatsappNumber: String,
-    val email: String,
+    val email: String
 )
+

@@ -24,10 +24,7 @@ fun SettingsPage() {
     ) {
         Column(verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally) {
-            Text(text = "Theme Auto", color = Color.White)
-            Button(onClick = { /*TODO: Handle Edit account button click*/ }) {
-                Text(text = "Edit account abc265...")
-            }
+
             Button(onClick = { /*TODO: Handle Sign Out button click*/ }, colors = ButtonDefaults.buttonColors(Color.Red)) {
                 Text(text = "Sign Out")
             }

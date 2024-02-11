@@ -72,6 +72,9 @@ dependencies {
     implementation("androidx.compose.material3:material3")
     implementation("com.google.firebase:firebase-auth:22.3.1")
     implementation ("androidx.compose.material3:material3:1.2.0")
+    implementation("androidx.activity:activity-ktx:1.8.2")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
+
     //Dagger-Hilt
     implementation("com.google.dagger:hilt-android:2.48")
     implementation("com.google.android.gms:play-services-location:21.1.0")

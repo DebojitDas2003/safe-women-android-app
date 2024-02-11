@@ -27,6 +27,7 @@ import com.example.safewomen.BuildConfig
 import com.example.safewomen.R
 
 val versionName = BuildConfig.VERSION_NAME
+
 @Composable
 fun AboutScreen() {
     Surface(

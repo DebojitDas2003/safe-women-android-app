@@ -1,8 +1,6 @@
 package com.adds.safewomen.service
 
-
 import android.Manifest
-import android.app.Activity
 import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -13,9 +11,7 @@ import android.content.pm.PackageManager
 import android.location.Location
 import android.os.Build
 import android.os.IBinder
-import android.service.controls.ControlsProviderService.TAG
 import android.util.Log
-import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
 import com.adds.safewomen.MainActivity
@@ -27,103 +23,35 @@ import com.google.android.gms.location.LocationResult
 import com.google.android.gms.location.LocationServices
 import java.util.concurrent.TimeUnit
 
-class LocationService(private val activity: Activity) {
-    private val fusedLocationClient: FusedLocationProviderClient =
-        LocationServices.getFusedLocationProviderClient(activity)
-    private val requestCode = 404
-    fun isLocationPermissionGranted(): Boolean {
-        return if (ActivityCompat.checkSelfPermission(
-                activity,
-                Manifest.permission.ACCESS_COARSE_LOCATION
-            ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
-                activity,
-                Manifest.permission.ACCESS_FINE_LOCATION
-            ) != PackageManager.PERMISSION_GRANTED
-        ) {
-            ActivityCompat.requestPermissions(
-                activity,
-                arrayOf(
-                    Manifest.permission.ACCESS_FINE_LOCATION,
-                    Manifest.permission.ACCESS_COARSE_LOCATION
-                ),
-                requestCode
-            )
-            false
-        } else {
-            true
-        }
-    }
-}
-
-//        val locationResult = fusedLocationClient.lastLocation
-//        locationResult.addOnCompleteListener(activity) { task ->
-//            if (task.isSuccessful && task.result != null) {
-//                val location = task.result
-//                // Return the location as a string
-//                callback("${location.latitude}, ${location.longitude}")
-//            } else {
-//                callback("Location not available")
-//            }
-//        }
-//    }
-//    private fun displayLocationDialog(location: String) {
-//        val alertDialogBuilder: AlertDialog.Builder = AlertDialog.Builder(activity)
-//        alertDialogBuilder.setTitle("Location")
-//        alertDialogBuilder.setMessage(location)
-//        alertDialogBuilder.setPositiveButton("OK") { dialog, _ ->
-//            dialog.dismiss()
-//        }
-//        val alertDialog: AlertDialog = alertDialogBuilder.create()
-//        alertDialog.show()
-//    }
-//}
 class ForegroundOnlyLocationService : Service() {
 
-    // FusedLocationProviderClient - Main class for receiving location updates.
     private lateinit var fusedLocationClient: FusedLocationProviderClient
-    // LocationRequest - Requirements for the location updates, i.e.,
-// how often you should receive updates, the priority, etc.
     private lateinit var locationRequest: LocationRequest
-    // LocationCallback - Called when FusedLocationProviderClient
-// has a new Location
     private lateinit var locationCallback: LocationCallback
-    // This will store current location info
     private var currentLocation: Location? = null
     private var latitude: Double = 0.0
     private var longitude: Double = 0.0
+
     companion object {
         const val CHANNEL_ID = "ForegroundLocationChannel"
         const val NOTIFICATION_ID = 12345
+        const val TAG = "LocationService"
     }
 
     override fun onCreate() {
         super.onCreate()
 
-        // Create the location request
         locationRequest = LocationRequest().apply {
-            // Sets the desired interval for
-            // active location updates.
-            // This interval is inexact.
             interval = TimeUnit.SECONDS.toMillis(60)
-
-            // Sets the fastest rate for active location updates.
-            // This interval is exact, and your application will never
-            // receive updates more frequently than this value
             fastestInterval = TimeUnit.SECONDS.toMillis(30)
-
-            // Sets the maximum time when batched location
-            // updates are delivered. Updates may be
-            // delivered sooner than this interval
             maxWaitTime = TimeUnit.MINUTES.toMillis(2)
-
             priority = LocationRequest.PRIORITY_HIGH_ACCURACY
         }
 
-        // Create the location callback
         locationCallback = object : LocationCallback() {
-             fun onLocationResult(locationResult: LocationResult?) {
-                 locationResult?.let { super.onLocationResult(it) }
-                locationResult?.lastLocation?.let { location ->
+            override fun onLocationResult(locationResult: LocationResult) {
+                super.onLocationResult(locationResult)
+                locationResult.lastLocation?.let { location ->
                     currentLocation = location
                     latitude = location.latitude
                     longitude = location.longitude
@@ -133,6 +61,7 @@ class ForegroundOnlyLocationService : Service() {
                 }
             }
         }
+
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
     }
