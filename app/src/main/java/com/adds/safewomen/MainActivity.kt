@@ -53,7 +53,7 @@ class MainActivity : AppCompatActivity() {
 }
 
 
-    @Composable
+@Composable
     fun AppContent(viewModel: MainViewModel) {
         val items = listOf(
             BottomNavigationItem(
@@ -129,6 +129,9 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
+
+
 
 @Composable
 @Preview()

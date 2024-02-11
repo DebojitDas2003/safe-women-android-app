@@ -1,5 +1,7 @@
 package com.adds.safewomen.view
 
+import android.content.Context
+import android.content.Intent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -18,7 +20,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.adds.safewomen.service.MessagingService
 import com.adds.safewomen.viewmodel.HomePageViewModel
 import com.example.compose.Design
 
@@ -54,6 +58,13 @@ fun HomePage() {
         }
     }
 }
+// Inside your activity or fragment
+fun startMessagingService(context: Context) {
+    val helpIntent = Intent(context, MessagingService::class.java)
+    ContextCompat.startForegroundService(context, helpIntent)
+}
+
+
 
 
 @Composable
