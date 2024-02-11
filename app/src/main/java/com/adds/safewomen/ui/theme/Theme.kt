@@ -1,5 +1,7 @@
 package com.example.compose
 
+import android.app.Activity
+import android.content.ContextWrapper
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Box
@@ -10,10 +12,13 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.toArgb
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 
 
@@ -84,19 +89,37 @@ private val DarkColors = darkColorScheme(
 
 @Composable
 fun AppTheme(
-  useDarkTheme: Boolean = isSystemInDarkTheme(),
-  content: @Composable() () -> Unit
+    useDarkTheme: Boolean = isSystemInDarkTheme(),
+    content: @Composable() () -> Unit
 ) {
-  val colors = if (!useDarkTheme) {
-    LightColors
-  } else {
-    DarkColors
-  }
+    val colors = if (!useDarkTheme) {
+        LightColors
+    } else {
+        DarkColors
+    }
 
-  MaterialTheme(
-    colorScheme = colors,
-    content = content
-  )
+    val activity = currentActivity()
+    val statusBarColor = if (useDarkTheme) Color.Black else Color.White
+
+    SideEffect {
+        activity?.window?.statusBarColor = statusBarColor.toArgb()
+    }
+
+    MaterialTheme(
+        colorScheme = colors,
+        content = content
+    )
+}
+
+
+@Composable
+fun currentActivity(): Activity? {
+    val context = LocalContext.current
+    return when (context) {
+        is Activity -> context
+        is ContextWrapper -> context.baseContext as? Activity
+        else -> null
+    }
 }
 
 @Composable
@@ -119,6 +142,7 @@ fun CyanCircle() {
         }
     }
 }
+
 
 @Composable
 fun GreenCircle() {

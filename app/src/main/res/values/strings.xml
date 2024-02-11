@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">Safe Women</string>
+    <string name="attention">Attention</string>
+    <string name="back_button">Back</string>
+    <string name="delete">Delete</string>
+    <string name="delete_question">Are you sure you want to delete?</string>
+    <string name="no_contact_description">Oops!\nNo contacts in the contactlist.\nTap + to add.</string>
+    <string name="edit_contact_title">Edit Contact</string>
+    <string name="contact">Contact</string>
+    <string name="contact_detail_title">Contact Details</string>
+    <string name="contact_entry_title">Add Contact</string>
+    <string name="contact_name_req">Contact Name*</string>
+    <string name="contact_email_req">Contact E-mail*</string>
+    <string name="contact_whatsapp_req">Contact WhatsApp*</string>
+    <string name="phoneNumber">Phone Number</string>
+    <string name="contact_phoneNumber_req">Phone Number*</string>
+    <string name="no">No</string>
+    <string name="save_action">Save</string>
+    <string name="yes">Yes</string>
+    <string name="required_fields">*required fields</string>
 </resources>

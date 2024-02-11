@@ -26,7 +26,11 @@
         tools:targetApi="31" >
 
 
-        <activity
+
+
+
+
+    <activity
             android:name="com.adds.safewomen.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" >

@@ -25,6 +25,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import com.adds.safewomen.model.BottomNavigationItem
+import com.adds.safewomen.view.contactPage.ContactList
 import com.adds.safewomen.viewmodel.BottomNavBarViewModel
 import com.example.compose.IconColor
 import com.example.compose.Navbar
@@ -106,7 +107,7 @@ fun BottomNavBar(viewModel: BottomNavBarViewModel) {
             ) {
                 when (viewModel.selectedItemIndex.value) {
                     0 -> HomePage()
-                    1 -> ContactPage()
+                    1 -> ContactList()
                     2 -> ProfilePage()
                     3 -> SettingsPage()
                 }
