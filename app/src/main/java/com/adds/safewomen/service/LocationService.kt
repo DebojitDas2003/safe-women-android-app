@@ -3,6 +3,7 @@ package com.adds.safewomen.service
 
 import android.Manifest
 import android.app.Activity
+import androidx.appcompat.app.AlertDialog
 import android.content.pm.PackageManager
 import androidx.core.app.ActivityCompat
 import com.google.android.gms.location.FusedLocationProviderClient
@@ -28,5 +29,15 @@ class LocationService(private val activity: Activity) {
                 callback("Location not available")
             }
         }
+    }
+    private fun displayLocationDialog(location: String) {
+        val alertDialogBuilder: AlertDialog.Builder = AlertDialog.Builder(activity)
+        alertDialogBuilder.setTitle("Location")
+        alertDialogBuilder.setMessage(location)
+        alertDialogBuilder.setPositiveButton("OK") { dialog, _ ->
+            dialog.dismiss()
+        }
+        val alertDialog: AlertDialog = alertDialogBuilder.create()
+        alertDialog.show()
     }
 }

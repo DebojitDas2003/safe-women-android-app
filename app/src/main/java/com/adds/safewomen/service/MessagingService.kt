@@ -1,5 +1,6 @@
 package com.adds.safewomen.service
 
+import android.annotation.SuppressLint
 import android.app.PendingIntent
 import android.app.Service
 import android.content.Intent
@@ -46,6 +47,7 @@ class MessagingService:Service() {
         SmsManager.getDefault().sendTextMessage(phoneNumber, null, message, sentPI, null)
     }
 
+    @SuppressLint("QueryPermissionsNeeded")
     private fun sendWhatsAppMessage(phoneNumber: String, message: String) {
         val whatsappIntent = Intent(Intent.ACTION_VIEW)
         whatsappIntent.type = "text/plain"
