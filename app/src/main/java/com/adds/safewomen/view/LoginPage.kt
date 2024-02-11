@@ -15,10 +15,12 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.adds.safewomen.viewmodel.LoginPageViewModel
+import com.example.compose.Background
 import com.example.compose.Design
 
 @Composable
@@ -28,7 +30,7 @@ fun LoginPage(onLoginSuccess: () -> Unit) {
 
         val viewModel: LoginPageViewModel = viewModel()
 
-        Surface(color = MaterialTheme.colorScheme.background) {
+        Surface(color = Background) {
             Column(
                 modifier = Modifier
                     .fillMaxSize()
@@ -39,7 +41,8 @@ fun LoginPage(onLoginSuccess: () -> Unit) {
                 Text(
                     text = "Email",
                     style = MaterialTheme.typography.bodySmall,
-                    modifier = Modifier.padding(start = 10.dp)
+                    modifier = Modifier.padding(start = 10.dp),
+                    color = (Color.White)
                 )
                 OutlinedTextField(
                     value = viewModel.email,
@@ -52,7 +55,8 @@ fun LoginPage(onLoginSuccess: () -> Unit) {
                 Text(
                     text = "Password",
                     style = MaterialTheme.typography.bodySmall,
-                    modifier = Modifier.padding(start = 10.dp)
+                    modifier = Modifier.padding(start = 10.dp),
+                    color = (Color.White)
                 )
                 OutlinedTextField(
                     value = viewModel.password,
@@ -64,7 +68,8 @@ fun LoginPage(onLoginSuccess: () -> Unit) {
                 Spacer(modifier = Modifier.height(10.dp))
                 Button(
                     onClick = { viewModel.onLoginClicked(onLoginSuccess) },
-                    modifier = Modifier.fillMaxWidth(),
+                    modifier = Modifier.fillMaxWidth()
+                        .padding(15.dp),
                     shape = MaterialTheme.shapes.medium
                 ) {
                     Text(text = "Login")

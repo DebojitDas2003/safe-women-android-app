@@ -66,3 +66,5 @@ val md_theme_dark_scrim = Color(0xFF000000)
 
 val seed = Color(0xFFE7007D)
 val Background = Color(0xff17212e)
+val Navbar = Color(0xff2a5082)
+val IconColor = Color(0xff58769d)

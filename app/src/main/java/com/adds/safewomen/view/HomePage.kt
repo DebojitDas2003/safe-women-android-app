@@ -24,6 +24,7 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.adds.safewomen.service.MessagingService
 import com.adds.safewomen.viewmodel.HomePageViewModel
+import com.example.compose.Background
 import com.example.compose.Design
 
 @Composable
@@ -34,8 +35,8 @@ fun HomePage() {
 
         Surface(
             modifier = Modifier
-                .background(MaterialTheme.colorScheme.background)
-                .fillMaxSize() // Fill the available space
+                .fillMaxSize(), // Fill the available space
+            color = Background
         ) {
             Column(
                 modifier = Modifier

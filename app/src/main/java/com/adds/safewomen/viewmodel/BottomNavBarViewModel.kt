@@ -1,9 +1,9 @@
-package com.adds.safewomen
+package com.adds.safewomen.viewmodel
 
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.lifecycle.ViewModel
 
-class MainViewModel : ViewModel() {
+class BottomNavBarViewModel : ViewModel() {
     // This is the index of the currently selected screen.
     val selectedItemIndex = mutableIntStateOf(0)
 
