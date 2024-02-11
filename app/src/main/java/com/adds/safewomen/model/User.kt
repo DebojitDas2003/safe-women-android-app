@@ -8,6 +8,5 @@ data class User(
     @PrimaryKey val id: Int,
     val name: String,
     val workplace: String,
-    val address: String,
-    var contacts: List<Contact>
+    val address: String
 )
