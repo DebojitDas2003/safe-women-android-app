@@ -69,13 +69,26 @@ fun AboutScreen() {
                     .padding(35.dp),
             )
 
+
+            Text(
+                text = "Developed by:- Team ADDS",
+                style = MaterialTheme.typography.headlineMedium,
+                fontWeight = FontWeight.Light,
+                color = MaterialTheme.colorScheme.onSecondary,
+
+                modifier = Modifier
+                    .padding(15.dp),
+            )
+
             Spacer(modifier = Modifier.height(30.dp))
 
             Box(
                 modifier = Modifier
                     .fillMaxSize(),
                 contentAlignment = Alignment.BottomCenter
-            ) {
+            )
+
+            {
                 Text(
                     text = "Version $versionName",
                     style = MaterialTheme.typography.bodySmall,
@@ -83,7 +96,7 @@ fun AboutScreen() {
                     color = (Color.White)
 
                 )
-            }
+               }
         }
 
 
