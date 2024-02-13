@@ -36,6 +36,7 @@ import androidx.compose.ui.unit.dp
 import com.adds.safewomen.model.Contact
 import com.adds.safewomen.view.contactNavigation.NavigationDestination
 import com.example.compose.Background
+import com.example.compose.ButtonColor
 import com.example.compose.Design
 import com.example.compose.Navbar
 import com.example.safewomen.R
@@ -67,6 +68,8 @@ fun ContactPage(
                 onClick = navigateToContactEntry,
                 shape = MaterialTheme.shapes.medium,
                 modifier = Modifier.padding(dimensionResource(id = R.dimen.padding_large)),
+                containerColor = ButtonColor,
+                contentColor = Color.White
 
             ) {
                 Icon(

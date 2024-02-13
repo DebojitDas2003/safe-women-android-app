@@ -1,15 +1,8 @@
 package com.adds.safewomen.viewmodel
 
-import android.graphics.Picture
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.adds.safewomen.viewmodel.User.Companion.DEFAULT_ADDRESS
-import com.adds.safewomen.viewmodel.User.Companion.DEFAULT_NAME
-import com.adds.safewomen.viewmodel.User.Companion.DEFAULT_WORKPLACE
-import com.adds.safewomen.viewmodel.User.Companion.ID
-import com.adds.safewomen.viewmodel.User.Companion.PROFILE_PICTURE_URL
-import com.example.safewomen.R
 
 data class User(
     val id: String,
@@ -44,7 +37,7 @@ class ProfilePageViewModel : ViewModel() {
         // Simulated user data
 
         val userData = User(
-            picture = (R.drawable.profile_picture),
+            //picture = (R.drawable.profile_picture),
             id = ID, // provide a value for id here
             name = DEFAULT_NAME,
             workplace = DEFAULT_ADDRESS,
@@ -56,5 +49,9 @@ class ProfilePageViewModel : ViewModel() {
     fun updateUserProfile(updatedUser: User) {
         // Update the user information in the repository or data source
         _user.value = updatedUser
+    }
+
+    fun incrementButtonClickCount() {
+        TODO("Not yet implemented")
     }
 }}

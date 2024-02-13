@@ -66,5 +66,7 @@ fun Contact.toContactUiState(isEntryValid: Boolean = false): ContactUiState = Co
 fun Contact.toContactDetails(): ContactDetails = ContactDetails(
     id = id,
     name = name,
-    phoneNumber = phoneNumber
+    phoneNumber = phoneNumber,
+    whatsappNumber = whatsappNumber,
+    email = email
 )

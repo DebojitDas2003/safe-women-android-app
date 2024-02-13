@@ -201,7 +201,8 @@ fun ContactDetailsPreview() {
                     1,
                     "Debojit",
                     "9163216884",
-                    "983040265746"
+                    "983040265746",
+                    "afafasda"
                 )
             ),
             onDelete = {}
