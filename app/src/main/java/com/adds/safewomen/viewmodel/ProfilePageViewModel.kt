@@ -46,12 +46,22 @@ class ProfilePageViewModel : ViewModel() {
         )
         _user.value = userData
     }
-    fun updateUserProfile(updatedUser: User) {
+    private fun updateUserProfile(updatedUser: User) {
         // Update the user information in the repository or data source
         _user.value = updatedUser
+    }
+    fun updateProfilePictureUrl(url: String) {
+        val currentUser = _user.value ?: return
+        val updatedUser = currentUser.copy(profilePictureUrl = url)
+        updateUserProfile(updatedUser)
     }
 
     fun incrementButtonClickCount() {
         TODO("Not yet implemented")
     }
-}}
+}
+
+    fun incrementButtonClickCount() {
+        TODO("Not yet implemented")
+    }
+}

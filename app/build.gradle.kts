@@ -75,6 +75,8 @@ dependencies {
     implementation("androidx.activity:activity-ktx:1.8.2")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
     implementation ("androidx.compose.runtime:runtime-livedata:1.5.9")
+    implementation("io.coil-kt:coil-compose:2.5.0")
+
 
 
     //Dagger-Hilt
