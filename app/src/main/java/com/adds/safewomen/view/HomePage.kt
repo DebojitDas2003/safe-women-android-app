@@ -2,6 +2,7 @@ package com.adds.safewomen.view
 
 import android.content.Context
 import android.content.Intent
+import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -49,7 +50,21 @@ fun HomePage() {
                 val phoneNumber = "8334003067" // Replace with the actual phone number
                 val message = "Help! I need assistance." // Replace with your SOS message
                 Button(
-                    onClick = { viewModel.onSOSButtonClicked(context, phoneNumber, message) },
+                    onClick = {
+                        viewModel.onSOSButtonClicked(context, phoneNumber, message) { result ->
+                            // Handle the result
+                            when (result) {
+                                is HomePageViewModel.SendMessageResult.Success -> {
+                                    // Handle success
+                                    startMessagingService(context)
+                                }
+                                is HomePageViewModel.SendMessageResult.Error -> {
+                                    // Handle error
+                                    Toast.makeText(context, result.message, Toast.LENGTH_SHORT).show()
+                                }
+                            }
+                        }
+                    },
                     colors = buttonColors(Color.Red),
                     modifier = Modifier
                         .size(200.dp)
