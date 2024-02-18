@@ -13,11 +13,15 @@ import com.adds.safewomen.viewmodel.BottomNavBarViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 class MainActivity : AppCompatActivity() {
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             val viewModel: BottomNavBarViewModel = viewModel()
             BottomNavBar(viewModel)
+
         }
     }
 }

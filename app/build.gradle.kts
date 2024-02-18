@@ -4,6 +4,7 @@ plugins {
     id("com.google.gms.google-services")
     id("com.google.devtools.ksp")
     id("dagger.hilt.android.plugin")
+
 }
 
 android {
@@ -74,7 +75,9 @@ dependencies {
     implementation ("androidx.compose.material3:material3:1.2.0")
     implementation("androidx.activity:activity-ktx:1.8.2")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
-    implementation ("androidx.compose.runtime:runtime-livedata:1.5.9")
+    implementation ("androidx.compose.runtime:runtime-livedata:1.6.1")
+    implementation ("io.insert-koin:koin-android:3.5.3")
+
     implementation("io.coil-kt:coil-compose:2.5.0")
 
 
