@@ -85,4 +85,21 @@ To ensure scalability, we plan to employ a cloud-based infrastructure capable of
 
 ## Tech Stack:
 
-## Business Model
+**Programming Language**:
+**Kotlin**: As the preferred language for Android development, we have used kotlin.
+
+**Architecture**:
+
+**Maps and Location Services**:
+
+**Database**:
+
+**UI Toolkit**:
+
+## Business Model:
+
+We are committed to continuously improving the Safe Women app and expanding our user base. Some future plans include:
+1. Enhancing existing features based on user feedback
+2. Introducing new features to address emerging safety concerns
+3. Expanding to international markets to reach a wider audience
+4. If we sell our app to the government, we will reach a larger audience.
