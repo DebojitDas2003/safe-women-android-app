@@ -1,5 +1,6 @@
 package com.adds.safewomen.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.adds.safewomen.database.ContactDao
@@ -89,6 +90,7 @@ class ContactPageViewModel(private val dao: ContactDao) : ViewModel() {
             }
             ContactEvent.ShowDialog -> {
                 _state.value = _state.value.copy(isAddingContact = true)
+                Log.d("showdialog","show dialog")
             }
             is ContactEvent.SortContacts -> {
                 _sortType.value = event.sortType

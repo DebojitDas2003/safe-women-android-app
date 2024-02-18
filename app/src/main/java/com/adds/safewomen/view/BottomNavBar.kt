@@ -21,17 +21,18 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.tooling.preview.Preview
-import com.adds.safewomen.miscellaneous.ContactState
 import com.adds.safewomen.model.BottomNavigationItem
 import com.adds.safewomen.viewmodel.BottomNavBarViewModel
+import com.adds.safewomen.viewmodel.ContactPageViewModel
 import com.example.compose.IconColor
 import com.example.compose.Navbar
 
 @Composable
-fun BottomNavBar(viewModel: BottomNavBarViewModel) {
+fun BottomNavBar(viewModel: BottomNavBarViewModel, contactPageViewModel: ContactPageViewModel) {
     val items = listOf(
         BottomNavigationItem(
             title = "Home",
@@ -59,6 +60,7 @@ fun BottomNavBar(viewModel: BottomNavBarViewModel) {
         )
     )
 
+    val state by contactPageViewModel.state.collectAsState()
 
 
     Surface(
@@ -107,7 +109,7 @@ fun BottomNavBar(viewModel: BottomNavBarViewModel) {
             ) {
                 when (viewModel.selectedItemIndex.value) {
                     0 -> HomePage()
-                    1 -> ContactPage(ContactState(), onEvent = {})
+                    1 -> ContactPage(state, onEvent = contactPageViewModel::onEvent)
                     2 -> ProfilePage()
                     3 -> SettingsPage()
                 }
@@ -116,9 +118,9 @@ fun BottomNavBar(viewModel: BottomNavBarViewModel) {
     }
 }
 
-@Composable
-@Preview()
-fun BottomNavBarPreview() {
-    val viewModel = BottomNavBarViewModel()
-    BottomNavBar(viewModel)
-}
+//@Composable
+//@Preview()
+//fun BottomNavBarPreview() {
+//    val viewModel = BottomNavBarViewModel()
+//    BottomNavBar(viewModel)
+//}
