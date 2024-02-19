@@ -1,8 +1,5 @@
 package com.adds.safewomen.view
 
-import android.content.Context
-import android.content.Intent
-import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -17,13 +14,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.core.content.ContextCompat
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.adds.safewomen.service.MessagingService
 import com.adds.safewomen.viewmodel.HomePageViewModel
 import com.example.compose.Background
 import com.example.compose.Design
@@ -46,24 +40,25 @@ fun HomePage() {
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                val context = LocalContext.current // Add this line to get the context
-                val phoneNumber = "8334003067" // Replace with the actual phone number
-                val message = "Help! I need assistance." // Replace with your SOS message
+//                val context = LocalContext.current // Add this line to get the context
+//                val phoneNumber = "8334003067" // Replace with the actual phone number
+//                val message = "Help! I need assistance." // Replace with your SOS message
                 Button(
                     onClick = {
-                        viewModel.onSOSButtonClicked(context, phoneNumber, message) { result ->
+                       viewModel.onSOSButtonClicked(/*context phoneNumber message*/)
+//                       { result ->
                             // Handle the result
-                            when (result) {
-                                is HomePageViewModel.SendMessageResult.Success -> {
-                                    // Handle success
-                                    startMessagingService(context)
-                                }
-                                is HomePageViewModel.SendMessageResult.Error -> {
-                                    // Handle error
-                                    Toast.makeText(context, result.message, Toast.LENGTH_SHORT).show()
-                                }
-                            }
-                        }
+//                            when (result) {
+//                                is HomePageViewModel.SendMessageResult.Success -> {
+//                                    // Handle success
+//                                    startMessagingService(context)
+//                                }
+//                                is HomePageViewModel.SendMessageResult.Error -> {
+//                                    // Handle error
+//                                    Toast.makeText(context, result.message, Toast.LENGTH_SHORT).show()
+//                                }
+//                            }
+//                        }
                     },
                     colors = buttonColors(Color.Red),
                     modifier = Modifier
@@ -78,10 +73,10 @@ fun HomePage() {
     }
 }
 // Inside your activity or fragment
-fun startMessagingService(context: Context) {
-    val helpIntent = Intent(context, MessagingService::class.java)
-    ContextCompat.startForegroundService(context, helpIntent)
-}
+//fun startMessagingService(context: Context) {
+//    val helpIntent = Intent(context, MessagingService::class.java)
+//    ContextCompat.startForegroundService(context, helpIntent)
+//}
 
 
 
