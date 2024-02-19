@@ -38,9 +38,16 @@
             android:enabled="true"
             android:exported="false"
             android:foregroundServiceType="location"
+            android:stopWithTask="false"
             tools:ignore="MissingClass,WrongManifestParent"/>
 
 
+
+        <service
+            android:name="com.adds.safewomen.service.MessagingService"
+            android:enabled="true"
+            android:exported="false"
+            android:stopWithTask="false"/>
 
 
         <!-- Activity declaration -->

@@ -1,58 +1,70 @@
 package com.adds.safewomen.service
 
-import android.annotation.SuppressLint
-import android.app.PendingIntent
 import android.app.Service
 import android.content.Intent
-import android.net.Uri
 import android.os.IBinder
 import android.telephony.SmsManager
-import android.widget.Toast
+import android.util.Log
+import androidx.room.Room
+import com.adds.safewomen.database.ContactDatabase
+import com.adds.safewomen.service.LocationService.Companion.TAG
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
+import kotlinx.coroutines.awaitAll
+import kotlinx.coroutines.launch
 
+class MessagingService : Service() {
+    private lateinit var db: ContactDatabase
 
-
-class MessagingService:Service() {
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-        // Get the phone number and message (you can customize this part)
-        val phoneNumber = "9734433986" // Replace with the actual recipient's number
-        val message = "Emergency! Please help!"
+        db = Room.databaseBuilder(
+            applicationContext,
+            ContactDatabase::class.java,
+            "contacts.db"
+        ).build()
 
-        // Send SMS
-        sendSMS(phoneNumber, message)
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                db.dao.getAllContactsByPhoneNumber().collect { contactList ->
+                    val jobs = contactList.map { contact ->
+                        async {
+                            sendMessage(contact.phoneNumber, "Your message here")
+                        }
+                    }
+                    jobs.awaitAll()
+                }
+            } catch (e: Exception) {
+                // Handle exceptions, log or notify the user
+            } finally {
+                db.close()
+                stopSelf()
+            }
+        }
 
-        // Send WhatsApp message
-        sendWhatsAppMessage(phoneNumber, message)
-
-        // Stop the service (optional)
-        stopSelf()
         return START_NOT_STICKY
     }
 
-    private fun sendSMS(phoneNumber: String, message: String) {
-        val sentPI = PendingIntent.getBroadcast(this, 0, Intent("SMS_SENT"),
-            PendingIntent.FLAG_IMMUTABLE)
-        SmsManager.getDefault().sendTextMessage(phoneNumber, null, message, sentPI, null)
-    }
-
-    @SuppressLint("QueryPermissionsNeeded")
-    private fun sendWhatsAppMessage(whatsappNumber: String, message: String) {
-        val whatsappIntent = Intent(Intent.ACTION_VIEW)
-        whatsappIntent.type = "text/plain"
-        whatsappIntent.setPackage("com.whatsapp")
-        whatsappIntent.putExtra(Intent.EXTRA_TEXT, message)
-
-        if (whatsappIntent.resolveActivity(packageManager) != null) {
-            startActivity(whatsappIntent)
-        } else {
-            Toast.makeText(this, "Please install WhatsApp first.", Toast.LENGTH_SHORT).show()
-            // Optionally, provide a link to download WhatsApp from the Play Store
-            val playStoreUri = Uri.parse("market://details?id=com.whatsapp")
-            val playStoreIntent = Intent(Intent.ACTION_VIEW, playStoreUri)
-            startActivity(playStoreIntent)
+    private fun sendMessage(phoneNumber: String, message: String) {
+        try {
+            val smsManager = SmsManager.getDefault()
+            smsManager.sendTextMessage(phoneNumber, null, message, null, null)
+            Log.d(TAG, "Message sent successfully to $phoneNumber")
+        } catch (e: Exception) {
+            Log.e(TAG, "Failed to send message to $phoneNumber: ${e.message}")
+            // Handle the exception accordingly, such as logging or showing a notification to the user
         }
     }
 
+
     override fun onBind(intent: Intent?): IBinder? {
         return null
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        if (::db.isInitialized && db.isOpen) {
+            db.close()
+        }
     }
 }

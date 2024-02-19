@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.AbsoluteRoundedCornerShape
@@ -37,12 +38,16 @@ fun SettingsPage() {
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Button(
-                onClick = { /* Handle Sign Out button click */ },
-                shape = AbsoluteRoundedCornerShape(10.dp,0.dp,10.dp,0.dp),
-                colors = ButtonDefaults.buttonColors(Color.Red),
-            ) {
-                Text(text = "Sign Out")
+
+            Button(onClick = { /* Handle About button click */ },
+                colors = ButtonColors(containerColor = ButtonColor,
+                    contentColor = Color.White,
+                    disabledContentColor = Color.Gray,
+                    disabledContainerColor = Color.Gray,
+                ),
+                modifier = Modifier.width(150.dp),
+                shape = AbsoluteRoundedCornerShape(10.dp,0.dp,10.dp,0.dp),) {
+                Text(text = "About")
             }
 
             Spacer(modifier = Modifier.size(20.dp))
@@ -53,10 +58,22 @@ fun SettingsPage() {
                     disabledContentColor = Color.Gray,
                     disabledContainerColor = Color.Gray,
                 ),
-                modifier = Modifier.width(130.dp),
+                modifier = Modifier.width(150.dp),
                 shape = AbsoluteRoundedCornerShape(10.dp,0.dp,10.dp,0.dp),) {
-                Text(text = "About")
+                Text(text = "Permissions")
             }
+
+            Spacer(modifier = Modifier.height(20.dp))
+
+            Button(
+                onClick = { /* Handle Sign Out button click */ },
+                shape = AbsoluteRoundedCornerShape(10.dp,0.dp,10.dp,0.dp),
+                colors = ButtonDefaults.buttonColors(Color.Red),
+                modifier = Modifier.width(150.dp)
+            ) {
+                Text(text = "Sign Out")
+            }
+
         }
         Design()
     }

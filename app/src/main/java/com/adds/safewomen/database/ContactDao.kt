@@ -31,4 +31,7 @@ interface ContactDao {
 
     @Query("SELECT * from contact ORDER BY email ASC")
     fun getAllContactsByEmail(): Flow<List<Contact>>
+
+    @Query("SELECT phoneNumber FROM contact")
+    fun getAllPhoneNumbers(): Flow<List<String>>
 }

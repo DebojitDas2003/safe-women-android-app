@@ -1,6 +1,5 @@
 package com.adds.safewomen.view
 
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -15,6 +14,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -32,8 +32,10 @@ fun RegisterPage(onRegisterSuccess: () -> Unit) {
             Column(
                 modifier = Modifier
                     .fillMaxSize()
-                    .padding(16.dp),
-                verticalArrangement = Arrangement.Center,
+                    .padding(
+                        vertical = 50.dp,
+                        horizontal = 15.dp
+                    ),
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
                 OutlinedTextField(
@@ -42,7 +44,8 @@ fun RegisterPage(onRegisterSuccess: () -> Unit) {
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(15.dp),
-                    label = { Text(text = "Name*")},
+                    label = { Text(text = "Name*",
+                        color = Color.White)},
                     singleLine = true
                 )
 
@@ -52,7 +55,8 @@ fun RegisterPage(onRegisterSuccess: () -> Unit) {
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(15.dp),
-                    label = { Text(text = "WorkPlace*")},
+                    label = { Text(text = "WorkPlace*",
+                        color = Color.White)},
                     singleLine = true
                 )
 
@@ -62,7 +66,8 @@ fun RegisterPage(onRegisterSuccess: () -> Unit) {
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(15.dp),
-                    label = { Text(text = "Address*")},
+                    label = { Text(text = "Address*",
+                        color = Color.White)},
                     singleLine = true
                 )
 
@@ -72,7 +77,8 @@ fun RegisterPage(onRegisterSuccess: () -> Unit) {
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(15.dp),
-                    label = { Text(text = "UserName*")},
+                    label = { Text(text = "UserName*",
+                        color = Color.White)},
                     singleLine = true
                 )
 
@@ -82,7 +88,8 @@ fun RegisterPage(onRegisterSuccess: () -> Unit) {
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(15.dp),
-                    label = { Text(text = "Email*")}
+                    label = { Text(text = "Email*",
+                        color = Color.White)}
                 )
 
 
@@ -92,7 +99,8 @@ fun RegisterPage(onRegisterSuccess: () -> Unit) {
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(15.dp),
-                    label = { Text(text = "Password*")},
+                    label = { Text(text = "Password*",
+                        color = Color.White)},
                     singleLine = true
                 )
 
@@ -103,7 +111,8 @@ fun RegisterPage(onRegisterSuccess: () -> Unit) {
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(15.dp),
-                    label = { Text(text = "Confirm Password*")},
+                    label = { Text(text = "Confirm Password*",
+                        color = Color.White)},
                     singleLine = true
                 )
 

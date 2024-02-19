@@ -38,32 +38,26 @@ fun LoginPage(onLoginSuccess: () -> Unit) {
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
-                Text(
-                    text = "Email",
-                    style = MaterialTheme.typography.bodySmall,
-                    modifier = Modifier.padding(start = 10.dp),
-                    color = (Color.White)
-                )
+
                 OutlinedTextField(
                     value = viewModel.email,
                     onValueChange = { viewModel.email = it },
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(15.dp),
+                    label = { Text(text = "Email*",
+                        color = Color.White)},
                     singleLine = true
                 )
-                Text(
-                    text = "Password",
-                    style = MaterialTheme.typography.bodySmall,
-                    modifier = Modifier.padding(start = 10.dp),
-                    color = (Color.White)
-                )
+
                 OutlinedTextField(
                     value = viewModel.password,
                     onValueChange = { viewModel.password = it },
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(15.dp)
+                        .padding(15.dp),
+                    label = { Text(text = "Password*",
+                        color = Color.White)},
                 )
                 Spacer(modifier = Modifier.height(10.dp))
                 Button(
