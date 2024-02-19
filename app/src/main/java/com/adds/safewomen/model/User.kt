@@ -1,6 +1,5 @@
 package com.adds.safewomen.model
 
-import android.graphics.Picture
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 

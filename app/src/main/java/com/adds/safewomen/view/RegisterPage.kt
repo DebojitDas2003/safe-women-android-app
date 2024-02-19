@@ -1,8 +1,6 @@
 package com.adds.safewomen.view
 
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -14,9 +12,10 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.adds.safewomen.viewmodel.RegisterViewModel
@@ -37,68 +36,82 @@ fun RegisterPage(onRegisterSuccess: () -> Unit) {
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
-                Text(
-                    text = "Username",
-                    style = MaterialTheme.typography.bodySmall,
-                    modifier = Modifier.padding(start = 10.dp),
-                    color = (Color.White)
+                OutlinedTextField(
+                    value = viewModel.name,
+                    onValueChange = { viewModel.name= it },
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(15.dp),
+                    label = { Text(text = "Name*")},
+                    singleLine = true
                 )
+
+                OutlinedTextField(
+                    value = viewModel.workplace,
+                    onValueChange = { viewModel.workplace= it },
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(15.dp),
+                    label = { Text(text = "WorkPlace*")},
+                    singleLine = true
+                )
+
+                OutlinedTextField(
+                    value = viewModel.address,
+                    onValueChange = { viewModel.address= it },
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(15.dp),
+                    label = { Text(text = "Address*")},
+                    singleLine = true
+                )
+
                 OutlinedTextField(
                     value = viewModel.username,
                     onValueChange = { viewModel.username= it },
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(15.dp),
+                    label = { Text(text = "UserName*")},
                     singleLine = true
                 )
-                Text(
-                    text = "Email Address",
-                    style = MaterialTheme.typography.bodySmall,
-                    modifier = Modifier.padding(start = 10.dp),
-                    color = (Color.White)
-                )
+
                 OutlinedTextField(
                     value = viewModel.email,
                     onValueChange = { viewModel.email = it },
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(15.dp)
+                        .padding(15.dp),
+                    label = { Text(text = "Email*")}
                 )
 
-                Text(
-                    text = "Create password",
-                    style = MaterialTheme.typography.bodySmall,
-                    modifier = Modifier.padding(start = 10.dp),
-                    color = (Color.White)
-                )
+
                 OutlinedTextField(
                     value = viewModel.password,
                     onValueChange = { viewModel.password= it },
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(15.dp),
+                    label = { Text(text = "Password*")},
                     singleLine = true
                 )
 
-                Text(
-                    text = "Verify Password",
-                    style = MaterialTheme.typography.bodySmall,
-                    modifier = Modifier.padding(start = 10.dp),
-                    color = (Color.White)
-                )
+
                 OutlinedTextField(
                     value = viewModel.password,
                     onValueChange = { viewModel.password= it },
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(15.dp),
+                    label = { Text(text = "Confirm Password*")},
                     singleLine = true
                 )
 
                 Spacer(modifier = Modifier.height(10.dp))
                 Button(
                     onClick = { viewModel.onRegisterClicked(onRegisterSuccess) },
-                    modifier = Modifier.fillMaxWidth()
+                    modifier = Modifier
+                        .fillMaxWidth()
                         .padding(15.dp),
                     shape = MaterialTheme.shapes.medium
                 ) {

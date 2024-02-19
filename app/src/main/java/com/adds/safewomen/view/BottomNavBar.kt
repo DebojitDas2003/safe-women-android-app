@@ -118,9 +118,3 @@ fun BottomNavBar(viewModel: BottomNavBarViewModel, contactPageViewModel: Contact
     }
 }
 
-//@Composable
-//@Preview()
-//fun BottomNavBarPreview() {
-//    val viewModel = BottomNavBarViewModel()
-//    BottomNavBar(viewModel)
-//}

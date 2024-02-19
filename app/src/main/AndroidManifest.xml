@@ -34,16 +34,13 @@
 
         <!-- Service declaration moved inside the application element -->
         <service
-            android:name="com.adds.safewomen.service.ForegroundOnlyLocationService"
+            android:name="com.adds.safewomen.service.LocationService"
             android:enabled="true"
             android:exported="false"
             android:foregroundServiceType="location"
             tools:ignore="MissingClass,WrongManifestParent"/>
 
-        <service
-            android:name="com.adds.safewomen.service.BGLocationService"
-            android:enabled="true"
-            android:exported="false" />
+
 
 
         <!-- Activity declaration -->
@@ -57,5 +54,14 @@
             </intent-filter>
         </activity>
 
+        <receiver android:name= "com.adds.safewomen.widget.HelpWidgetReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_help_provider" />
+        </receiver>
     </application>
 </manifest>

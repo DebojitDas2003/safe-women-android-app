@@ -54,10 +54,3 @@ class MainActivity : AppCompatActivity() {
 
 
 
-
-//@Composable
-//@Preview()
-//fun AppPreview() {
-//    val viewModel = BottomNavBarViewModel()
-//    BottomNavBar(viewModel)
-//}

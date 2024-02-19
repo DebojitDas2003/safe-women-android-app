@@ -10,19 +10,6 @@ import android.telephony.SmsManager
 import android.widget.Toast
 
 
-//class MessagingService(private val context: Context) {
-//
-//    fun sendSMS(phoneNumber: String, message: String) {
-//        val smsManager = SmsManager.getDefault()
-//        smsManager.sendTextMessage(phoneNumber, null, message, null, null)
-//    }
-//
-//    fun sendWhatsAppMessage(phoneNumber: String, message: String) {
-//        val intent = Intent(Intent.ACTION_VIEW)
-//        intent.data = Uri.parse("http://api.whatsapp.com/send?phone=$phoneNumber&text=$message")
-//        context.startActivity(intent)
-//    }
-//}
 
 class MessagingService:Service() {
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
@@ -48,7 +35,7 @@ class MessagingService:Service() {
     }
 
     @SuppressLint("QueryPermissionsNeeded")
-    private fun sendWhatsAppMessage(phoneNumber: String, message: String) {
+    private fun sendWhatsAppMessage(whatsappNumber: String, message: String) {
         val whatsappIntent = Intent(Intent.ACTION_VIEW)
         whatsappIntent.type = "text/plain"
         whatsappIntent.setPackage("com.whatsapp")
