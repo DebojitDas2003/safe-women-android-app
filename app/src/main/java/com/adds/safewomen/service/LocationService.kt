@@ -1,11 +1,14 @@
 package com.adds.safewomen.service
 
 import android.Manifest
+import android.app.Activity
 import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
 import android.app.Service
+import android.content.BroadcastReceiver
+import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.content.pm.PackageManager
@@ -14,8 +17,11 @@ import android.os.BatteryManager
 import android.os.Build
 import android.os.IBinder
 import android.util.Log
+import android.widget.Toast
+import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
+import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import com.adds.safewomen.MainActivity
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationCallback
@@ -24,6 +30,7 @@ import com.google.android.gms.location.LocationResult
 import com.google.android.gms.location.LocationServices
 import java.util.concurrent.TimeUnit
 
+const val LOCATION_PERMISSION_REQUEST_CODE = 100
 class LocationService : Service() {
 
     private lateinit var fusedLocationClient: FusedLocationProviderClient
@@ -37,6 +44,7 @@ class LocationService : Service() {
         const val CHANNEL_ID = "ForegroundLocationChannel"
         const val NOTIFICATION_ID = 12345
         const val TAG = "LocationService"
+        const val ACTION_LOCATION_UPDATE = "com.adds.safewomen.ACTION_LOCATION_UPDATE"
     }
 
     override fun onCreate() {
@@ -55,7 +63,10 @@ class LocationService : Service() {
                     currentLocation = location
                     latitude = location.latitude
                     longitude = location.longitude
-                    Log.d(TAG, "Latitude: $latitude, Longitude: $longitude")
+                    //                    Log.d(TAG, "Latitude: $latitude, Longitude: $longitude")
+                    val intent = Intent(ACTION_LOCATION_UPDATE)
+                    intent.putExtra("latitude", latitude)
+                    intent.putExtra("longitude", longitude)
                 } ?: run {
                     Log.d(TAG, "Location information isn't available.")
                 }
@@ -64,11 +75,52 @@ class LocationService : Service() {
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
     }
+    private val locationReceiver = object : BroadcastReceiver() {
+        override fun onReceive(context: Context?, intent: Intent?) {
+            if (intent?.action == ACTION_LOCATION_UPDATE) {
+                val latitude = intent.getDoubleExtra("latitude", 0.0)
+                val longitude = intent.getDoubleExtra("longitude", 0.0)
+                // Do whatever you need with the received location data
+            }
+        }
+    }
+    private fun hasLocationPermission(context: Context): Boolean {
+        return ContextCompat.checkSelfPermission(
+            context,
+            Manifest.permission.ACCESS_FINE_LOCATION
+        ) == PackageManager.PERMISSION_GRANTED
+    }
+
+    // Method to request location permission
+    private fun requestLocationPermission(activity: Activity) {
+        ActivityCompat.requestPermissions(
+            activity,
+            arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
+            LOCATION_PERMISSION_REQUEST_CODE
+        )
+    }
+    // Method to handle the result of the permission request
+    fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<String>,
+        grantResults: IntArray
+    ) {
+//        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == LOCATION_PERMISSION_REQUEST_CODE) {
+            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                // Permission granted, you can now proceed with location-related tasks
+                // For example, start location updates
+                requestLocationUpdates()
+            } else {
+                Toast.makeText(this, "Location permission denied", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         createNotificationChannel()
         startForeground(NOTIFICATION_ID, createNotification())
-
+        LocalBroadcastManager.getInstance(this).registerReceiver(locationReceiver, IntentFilter(ACTION_LOCATION_UPDATE))
         requestLocationUpdates()
 
         return START_STICKY
@@ -80,6 +132,7 @@ class LocationService : Service() {
 
     override fun onDestroy() {
         super.onDestroy()
+        LocalBroadcastManager.getInstance(this).unregisterReceiver(locationReceiver)
         fusedLocationClient.removeLocationUpdates(locationCallback)
     }
 
@@ -139,4 +192,5 @@ class LocationService : Service() {
             .setContentIntent(pendingIntent)
             .build()
     }
+
 }

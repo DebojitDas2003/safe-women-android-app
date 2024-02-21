@@ -1,6 +1,5 @@
 package com.adds.safewomen.view
 
-import android.content.Intent
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -15,28 +14,23 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.adds.safewomen.service.MessagingService
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.adds.safewomen.viewmodel.HomePageViewModel
 import com.example.compose.Background
 import com.example.compose.Design
 
 @Composable
 fun HomePage() {
-    // Obtain the current context
-    val context = LocalContext.current
-
-    // Call the service when the button is pressed
-    val onHelpButtonClicked: () -> Unit = {
-        val serviceIntent = Intent(context, MessagingService::class.java)
-        context.startService(serviceIntent)
-    }
-
+    val viewModel: HomePageViewModel = viewModel()
     MaterialTheme {
+
+
         Surface(
-            modifier = Modifier.fillMaxSize(), // Fill the available space
+            modifier = Modifier
+                .fillMaxSize(), // Fill the available space
             color = Background
         ) {
             Column(
@@ -46,8 +40,26 @@ fun HomePage() {
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
+//                val context = LocalContext.current // Add this line to get the context
+//                val phoneNumber = "8334003067" // Replace with the actual phone number
+//                val message = "Help! I need assistance." // Replace with your SOS message
                 Button(
-                    onClick = onHelpButtonClicked, // Call the service when the button is clicked
+                    onClick = {
+                       viewModel.onSOSButtonClicked(/*context phoneNumber message*/)
+//                       { result ->
+                            // Handle the result
+//                            when (result) {
+//                                is HomePageViewModel.SendMessageResult.Success -> {
+//                                    // Handle success
+//                                    startMessagingService(context)
+//                                }
+//                                is HomePageViewModel.SendMessageResult.Error -> {
+//                                    // Handle error
+//                                    Toast.makeText(context, result.message, Toast.LENGTH_SHORT).show()
+//                                }
+//                            }
+//                        }
+                    },
                     colors = buttonColors(Color.Red),
                     modifier = Modifier
                         .size(200.dp)
@@ -60,6 +72,11 @@ fun HomePage() {
         }
     }
 }
+// Inside your activity or fragment
+//fun startMessagingService(context: Context) {
+//    val helpIntent = Intent(context, MessagingService::class.java)
+//    ContextCompat.startForegroundService(context, helpIntent)
+//}
 
 
 
