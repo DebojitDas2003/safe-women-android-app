@@ -18,7 +18,7 @@ import com.adds.safewomen.viewmodel.BottomNavBarViewModel
 import com.adds.safewomen.viewmodel.ContactPageViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
+
 class MainActivity : AppCompatActivity() {
 
     private val db by lazy{
