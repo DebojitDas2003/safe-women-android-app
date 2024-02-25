@@ -1,6 +1,8 @@
 package com.adds.safewomen.viewmodel
 
 import androidx.compose.runtime.mutableStateOf
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class SettingsPageViewModel : ViewModel() {
@@ -11,5 +13,15 @@ class SettingsPageViewModel : ViewModel() {
     fun incrementButtonClickCount() {
         _buttonClickCount.value++
     }
+    private val _navigateToAboutPage = MutableLiveData<Boolean>()
+     val navigateToAboutPage: LiveData<Boolean> = _navigateToAboutPage
+
+     fun onAboutClicked() {
+         _navigateToAboutPage.value = true
+     }
+
+     fun onNavigateToAboutPageComplete() {
+         _navigateToAboutPage.value = false
+     }
 }
 

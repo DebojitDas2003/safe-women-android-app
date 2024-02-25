@@ -72,9 +72,9 @@ dependencies {
     implementation ("androidx.compose.material3:material3:1.2.0")
     implementation("androidx.activity:activity-ktx:1.8.2")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
-    implementation ("androidx.compose.runtime:runtime-livedata:1.6.1")
+    implementation ("androidx.compose.runtime:runtime-livedata:1.6.2")
     implementation ("io.insert-koin:koin-android:3.5.3")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")
+    implementation ("androidx.localbroadcastmanager:localbroadcastmanager:1.1.0")
 
     implementation("io.coil-kt:coil-compose:2.5.0")
 
@@ -112,5 +112,7 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
+
+
 
 }

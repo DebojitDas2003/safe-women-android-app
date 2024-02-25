@@ -25,9 +25,11 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.navigation.compose.rememberNavController
 import com.adds.safewomen.model.BottomNavigationItem
 import com.adds.safewomen.viewmodel.BottomNavBarViewModel
 import com.adds.safewomen.viewmodel.ContactPageViewModel
+import com.adds.safewomen.viewmodel.SettingsPageViewModel
 import com.example.compose.IconColor
 import com.example.compose.Navbar
 
@@ -61,6 +63,7 @@ fun BottomNavBar(viewModel: BottomNavBarViewModel, contactPageViewModel: Contact
     )
 
     val state by contactPageViewModel.state.collectAsState()
+    val navController = rememberNavController()
 
 
     Surface(
@@ -68,7 +71,7 @@ fun BottomNavBar(viewModel: BottomNavBarViewModel, contactPageViewModel: Contact
     ) {
         Scaffold(
             bottomBar = {
-                NavigationBar(containerColor = Navbar){
+                NavigationBar(containerColor = Navbar) {
                     items.forEachIndexed { index, item ->
                         NavigationBarItem(
                             selected = viewModel.selectedItemIndex.value == index,
@@ -76,7 +79,8 @@ fun BottomNavBar(viewModel: BottomNavBarViewModel, contactPageViewModel: Contact
                                 viewModel.onItemSelected(index)
                             },
                             label = {
-                                Text(text = item.title
+                                Text(
+                                    text = item.title
                                 )
                             },
                             icon = {
@@ -87,7 +91,8 @@ fun BottomNavBar(viewModel: BottomNavBarViewModel, contactPageViewModel: Contact
                                     contentDescription = item.title,
                                 )
                             },
-                            colors = NavigationBarItemColors(selectedIconColor = Color.White,
+                            colors = NavigationBarItemColors(
+                                selectedIconColor = Color.White,
                                 selectedIndicatorColor = IconColor,
                                 unselectedIconColor = Color.White,
                                 disabledIconColor = Color.Gray,
@@ -111,7 +116,7 @@ fun BottomNavBar(viewModel: BottomNavBarViewModel, contactPageViewModel: Contact
                     0 -> HomePage()
                     1 -> ContactPage(state, onEvent = contactPageViewModel::onEvent)
                     2 -> ProfilePage()
-                    3 -> SettingsPage()
+                    3 -> SettingsPage(navController = navController, settingsViewModel = SettingsPageViewModel())
                 }
             }
         }
