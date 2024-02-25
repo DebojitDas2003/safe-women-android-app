@@ -30,8 +30,8 @@ fun HomePage() {
 
     // Call the service when the button is pressed
     val onHelpButtonClicked: () -> Unit = {
-        val serviceIntent = Intent(context, MessagingService::class.java)
-        context.startService(serviceIntent)
+        val messagingServiceIntent = Intent(context, MessagingService::class.java)
+        context.startService(messagingServiceIntent)
     }
 
     MaterialTheme {

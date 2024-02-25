@@ -9,9 +9,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewmodel.CreationExtras
 import androidx.lifecycle.viewmodel.compose.viewModel
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
-import androidx.navigation.compose.rememberNavController
 import androidx.room.Room
 import com.adds.safewomen.database.ContactDatabase
 import com.adds.safewomen.view.BottomNavBar
@@ -50,12 +47,6 @@ class MainActivity : AppCompatActivity() {
             MaterialTheme {
                 val bottomNavBarViewModel: BottomNavBarViewModel = viewModel()
                 BottomNavBar(bottomNavBarViewModel, viewModel)
-            }
-            val navController = rememberNavController()
-            NavHost(navController = navController, startDestination = "home" ){
-                composable("login"){
-
-                }
             }
         }
     }
