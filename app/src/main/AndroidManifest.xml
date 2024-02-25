@@ -41,7 +41,8 @@
             android:name="com.adds.safewomen.service.MessagingService"
             android:enabled="true"
             android:exported="false"
-            android:stopWithTask="false"/>
+            android:stopWithTask="false"
+            android:foregroundServiceType="location"/>
 
 
         <!-- Activity declaration -->

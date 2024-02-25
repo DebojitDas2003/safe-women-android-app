@@ -29,7 +29,6 @@ import androidx.navigation.compose.rememberNavController
 import com.adds.safewomen.model.BottomNavigationItem
 import com.adds.safewomen.viewmodel.BottomNavBarViewModel
 import com.adds.safewomen.viewmodel.ContactPageViewModel
-import com.adds.safewomen.viewmodel.SettingsPageViewModel
 import com.example.compose.IconColor
 import com.example.compose.Navbar
 
@@ -116,7 +115,7 @@ fun BottomNavBar(viewModel: BottomNavBarViewModel, contactPageViewModel: Contact
                     0 -> HomePage()
                     1 -> ContactPage(state, onEvent = contactPageViewModel::onEvent)
                     2 -> ProfilePage()
-                    3 -> SettingsPage(navController = navController, settingsViewModel = SettingsPageViewModel())
+                    3 -> SettingsPage()
                 }
             }
         }
